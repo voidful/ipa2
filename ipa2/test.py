@@ -1,6 +1,5 @@
 import unittest
-from main import *
-from ipa2 import IPAConverter
+from ipa2.main import *
 
 class Test(unittest.TestCase):
 
@@ -9,5 +8,6 @@ class Test(unittest.TestCase):
         self.assertEqual(['nei˩˧ hou˧˥', 'lei˩˧ hou˧˥'], ipa.convert_sent("你好"))
 
     def test_pip(self):
+        from ipa2 import IPAConverter
         ipa = IPAConverter('yue')
         self.assertEqual(['nei˩˧ hou˧˥', 'lei˩˧ hou˧˥'], ipa.convert_sent("你好"))

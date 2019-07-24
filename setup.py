@@ -2,12 +2,12 @@ from setuptools import setup, find_packages
 
 
 setup(
-    name='pyipa',
+    name='ipa2',
     version='0.1.0',
     description='Tools for convert Text to IPA in python',
-    long_description="Github : https://github.com/voidful/pyipa",
-    url='https://github.com/voidful/pyipa',
-    author='Voidful',
+    long_description="Github : https://github.com/voidful/ipa2",
+    url='https://github.com/voidful/ipa2',
+    author='voidful',
     author_email='voidful.stack@gmail.com',
 
     classifiers=[

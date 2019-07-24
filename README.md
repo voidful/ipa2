@@ -1,4 +1,4 @@
-#   📖 PyIPA
+#   📖  IPA2
 
 Tools for convert Text to IPA in python
 
@@ -7,12 +7,12 @@ Tools for convert Text to IPA in python
 Install:
 
 ```
-pip install pyipa
+pip install ipa2
 ```
 
 Before using :
 ```
-from pyipa import IPAConverter
+from ipa2 import IPAConverter
 ```
 
 # Features

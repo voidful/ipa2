@@ -1,10 +1,12 @@
 import itertools
 import json
 import nlp2
+import os
 
 
 def load_lang_to_list(lang):
-    file_loc = 'data/' + lang + '.json'
+    this_dir, this_filename = os.path.split(__file__)
+    file_loc = os.path.join(this_dir, "data", lang + '.json')
     if nlp2.is_file_exist(file_loc):
         with open(file_loc, encoding='utf-8') as data_file:
             data = json.loads(data_file.read())

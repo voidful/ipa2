@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='ipa2',
-    version='0.1.0',
+    version='0.2.0',
     description='Tools for convert Text to IPA in python',
     long_description="Github : https://github.com/voidful/ipa2",
     url='https://github.com/voidful/ipa2',

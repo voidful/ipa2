@@ -1,18 +1,7 @@
 import itertools
 import json
 import nlp2
-import os
-
-
-def load_lang_to_list(lang):
-    this_dir, this_filename = os.path.split(__file__)
-    file_loc = os.path.join(this_dir, "data", lang + '.json')
-    if nlp2.is_file_exist(file_loc):
-        with open(file_loc, encoding='utf-8') as data_file:
-            data = json.loads(data_file.read())
-            return data[lang][0]
-    else:
-        assert FileNotFoundError
+import pkg_resources
 
 
 class IPAConverter:
@@ -20,10 +9,19 @@ class IPAConverter:
         super().__init__()
         self.data = {}
         if isinstance(lang, str):
-            self.data = load_lang_to_list(lang)
+            self.data = self.load_lang_to_list(lang)
         elif isinstance(lang, list):
             for i in lang:
-                self.data.update(load_lang_to_list(i))
+                self.data.update(self.load_lang_to_list(i))
+
+    def load_lang_to_list(self, lang):
+        file_loc = pkg_resources.resource_filename(__name__, 'data/' + lang + '.json')
+        if nlp2.is_file_exist(file_loc):
+            with open(file_loc, encoding='utf-8') as data_file:
+                data = json.loads(data_file.read())
+                return data[lang][0]
+        else:
+            assert FileNotFoundError
 
     def convert_sent(self, input='測試的句子'):
         input = nlp2.spilt_sentence_to_array(input, True)

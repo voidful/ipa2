@@ -1,1 +1,1 @@
-from .main import IPAConverter
+from .main import IPA2

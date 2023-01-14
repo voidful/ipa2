@@ -12,7 +12,7 @@ pip install ipa2
 
 Before using :
 ```
-from ipa2 import IPAConverter
+from ipa2 import IPA2
 ```
 
 # Features

@@ -26,6 +26,7 @@ class IPA2:
             assert FileNotFoundError
 
     def convert_sent(self, input='測試的句子'):
+        not_converted_char = []
         input = nlp2.split_sentence_to_array(input, False)
         result = []
         # maximum match
@@ -49,4 +50,6 @@ class IPA2:
         for i in result:
             if i in self.data:
                 ipa_result.append(self.data[i].split(","))
-        return [" ".join(x) for x in itertools.product(*ipa_result)]
+            else:
+                not_converted_char.append(i)
+        return [" ".join(x) for x in itertools.product(*ipa_result)], not_converted_char

@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='ipa2',
-    version='0.7.0',
+    version='0.9.0',
     package_dir={'ipa2': 'ipa2'},
     package_data={'ipa2': ['data/*']},
     description='Tools for convert Text to IPA in python',
@@ -23,7 +23,7 @@ setup(
     keywords='nlp file io string text mining ipa voice',
     zip_safe=True,
     install_requires=[
-        "nlp2",
+        "nlp2"
     ],
     packages=find_packages()
 )

@@ -5,7 +5,7 @@ import pkg_resources
 
 
 class IPA2:
-    def __init__(self, lang='yue'):
+    def __init__(self, lang="yue"):
         super().__init__()
         self.data = {}
         if isinstance(lang, str):
@@ -15,9 +15,9 @@ class IPA2:
                 self.data.update(self.load_lang_to_list(i))
 
     def load_lang_to_list(self, lang):
-        file_loc = pkg_resources.resource_filename(__name__, 'data/' + lang + '.tsv')
+        file_loc = pkg_resources.resource_filename(__name__, "data/" + lang + ".tsv")
         if nlp2.is_file_exist(file_loc):
-            tdict = nlp2.read_csv(file_loc, delimiter='\t')
+            tdict = nlp2.read_csv(file_loc, delimiter="\t")
             t = {}
             for i in tdict:
                 t[i[0]] = i[1]
@@ -29,7 +29,7 @@ class IPA2:
                 """` is not provided..."""
             )
 
-    def convert_sent(self, input='測試的句子'):
+    def convert_sent(self, input="測試的句子"):
         not_converted_char = []
         input = nlp2.split_sentence_to_array(input, False)
         result = []
@@ -39,7 +39,7 @@ class IPA2:
         while start < senlen:
             matched = False
             for i in range(senlen, 0, -1):
-                string = "".join(input[start:start + i])
+                string = "".join(input[start : start + i])
                 if string in self.data:
                     result.append(string)
                     matched = True

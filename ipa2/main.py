@@ -23,7 +23,11 @@ class IPA2:
                 t[i[0]] = i[1]
             return t
         else:
-            assert FileNotFoundError
+            raise FileNotFoundError(
+                f"""{lang} not supported as `"""
+                f"data/{lang}.tsv"
+                """` is not provided..."""
+            )
 
     def convert_sent(self, input='測試的句子'):
         not_converted_char = []

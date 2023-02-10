@@ -24,9 +24,7 @@ class IPA2:
             return t
         else:
             raise FileNotFoundError(
-                f"""{lang} not supported as `"""
-                f"data/{lang}.tsv"
-                """` is not provided..."""
+                f"{lang} not supported as `data/{lang}.tsv` is not provided..."
             )
 
     def convert_sent(self, input="測試的句子"):

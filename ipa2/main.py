@@ -15,7 +15,8 @@ class IPA2:
                 self.data.update(self.load_lang_to_list(i))
 
     def load_lang_to_list(self, lang):
-        file_loc = pkg_resources.resource_filename(__name__, "data/" + lang + ".tsv")
+        file_loc = pkg_resources.resource_filename(
+            __name__, "data/" + lang + ".tsv")
         if nlp2.is_file_exist(file_loc):
             tdict = nlp2.read_csv(file_loc, delimiter="\t")
             t = {}
@@ -37,7 +38,7 @@ class IPA2:
         while start < senlen:
             matched = False
             for i in range(senlen, 0, -1):
-                string = "".join(input[start : start + i])
+                string = "".join(input[start: start + i])
                 if string in self.data:
                     result.append(string)
                     matched = True

@@ -5,6 +5,7 @@ import pkg_resources
 
 
 class IPA2:
+
     def __init__(self, lang="yue"):
         super().__init__()
         self.data = {}
@@ -15,7 +16,8 @@ class IPA2:
                 self.data.update(self.load_lang_to_list(i))
 
     def load_lang_to_list(self, lang):
-        file_loc = pkg_resources.resource_filename(__name__, "data/" + lang + ".tsv")
+        file_loc = pkg_resources.resource_filename(__name__,
+                                                   "data/" + lang + ".tsv")
         if nlp2.is_file_exist(file_loc):
             tdict = nlp2.read_csv(file_loc, delimiter="\t")
             t = {}
@@ -37,7 +39,7 @@ class IPA2:
         while start < senlen:
             matched = False
             for i in range(senlen, 0, -1):
-                string = "".join(input[start : start + i])
+                string = "".join(input[start:start + i])
                 if string in self.data:
                     result.append(string)
                     matched = True
@@ -54,4 +56,5 @@ class IPA2:
                 ipa_result.append(self.data[i].split(","))
             else:
                 not_converted_char.append(i)
-        return [" ".join(x) for x in itertools.product(*ipa_result)], not_converted_char
+        return [" ".join(x)
+                for x in itertools.product(*ipa_result)], not_converted_char
